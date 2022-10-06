@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/edit.css') }}">
+    <title>Edit info</title>
+</head>
+<!-- need to put value -->
+<body>
+    <div class="header">
+        <h1>Edit</h1>
+        <a href="/allcats">Back</a>
+    </div>
+    <form action="/cat/update/{{cat.id}}" method="post" id="main">
+        <div class="each">
+            <label for="name">Name</label>
+            <input type="text" name="name" value="{{cat.name}}">
+        </div>
+        <div class="each">
+            <label for="age">Age</label>
+            <input type="text" name="age" value="{{cat.age}}">
+        </div>
+        <div class="each">
+            <label for="sex">Sex</label>
+            <input type="text" name="sex" value="{{cat.sex}}">
+        </div>
+        <div class="each">
+            <label for="color">Color</label>
+            <input type="text" name="color" value="{{cat.color}}">
+        </div>
+        <div class="each">
+            <label for="breed">Breed</label>
+            <input type="text" name="breed" value="{{cat.breed}}">
+        </div>
+        <div class="each">
+            <label for="health">health</label>
+            <input type="text" name="health" value="{{cat.health}}">
+        </div>
+        <div class="each">
+            <label for="location">Location</label>
+            <input type="text" name="location" value="{{cat.location}}">
+        </div>
+        <div class="each">
+            <label for="other_info">Other info:</label>
+            <textarea name="other_info" id="other_info" cols="30" rows="10">{{cat.other_info}}</textarea>
+        </div>
+        <div class="each">
+            <label for="pic">Picture:</label>
+            <input type="file" name="pic">
+        </div>
+        <div class="botton">
+            <button>Update</button>
+        </div>
+    </form>
+</body>
+</html>

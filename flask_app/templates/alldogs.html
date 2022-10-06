@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/alldogs.css') }}">
+    <title>All dogs</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Buddyfinder</h1>
+        <p>Adopt, don't shop</p>
+    </div>
+    <div class="nav_bar">
+        <div class="left">
+            <a href="/alldogs" class="nav_a">Dogs</a>
+            <a href="/allcats" class="nav_a">Cats</a>
+            {% if 9 == session['user_id'] %}
+            <a href="/admin/dog" class="nav_a">+ dog</a>
+            {% endif %}
+        </div>
+        <div class="right">
+            <a href="/" class="nav_a">Home</a>
+            <a href="/user/logout" class="nav_a">Log out</a>
+        </div>
+    </div>
+    <div class="main">
+        <table>
+            <thead>
+                <tr>
+                    <th>Pic</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Breed</th>
+                    <th>Location</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dog in all_dogs %}
+                <tr>
+                    <td><img src="{{ url_for('static', filename='uploads/'+dog.pic+'') }}" width="120px" height="120px"></td>
+                    <td>{{dog.name}}</td>
+                    <td>{{dog.age}}</td>
+                    <td>{{dog.breed}}</td>
+                    <td>{{dog.location}}</td>
+                    <td>
+                        <a href="/dog/view/{{dog.id}}">view</a>
+                        {% if dog.post.id == session['user_id'] %}
+                        <a href="/dog/edit/{{dog.id}}">edit</a>
+                        <a href="/dog/delete/{{dog.id}}">delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/homepage.css') }}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Buddyfinder</h1>
+        <p>Adopt, don't shop</p>
+    </div>
+    <div class="nav_bar">
+        <div class="left">
+            <a onclick="alert('Please login to see our pet')" href="/home/login">Dogs</a>
+            <a onclick="alert('Please login to see our pet')" href="/home/login">Cats</a>
+        </div>
+        <div class="right">
+            <a onclick="alert('Please login to see our pet')" href="/home/login">Home</a>
+            <a href="/home/login">Login</a>
+        </div>
+    </div>
+    <div class="mainpic">
+        <img src="{{ url_for('static', filename='img/3.jpg')}}" id="homepicture">
+        <img src="{{ url_for('static', filename='img/3-2.jpg')}}" alt="pic" id="homepic">
+    </div>
+</body>
+</html>
+<script type="text/javascript" src="{{ url_for('static', filename='/js/index.js') }}"></script>

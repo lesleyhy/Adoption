@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>Login Page</title>
+</head>
+<body>
+    <div class="container">
+        <form action="/create" method="post">
+            <div class="left">
+                <h1>Register</h1>
+                <label for="fname">First name:</label><br>
+                <input type="text" name="first_name" id="input"><br>
+                {% for message in get_flashed_messages(category_filter = ['err_user_first_name']) %}
+                <p>{{message}}</p>
+                {% endfor %}
+                <label for="lname">Last name:</label><br>
+                <input type="text" name="last_name" id="input"><br>
+                {% for message in get_flashed_messages(category_filter = ['err_user_last_name']) %}
+                <p>{{message}}</p>
+                {% endfor %}
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="input"><br>
+                {% for message in get_flashed_messages(category_filter = ['err_user_email']) %}
+                <p>{{message}}</p>
+                {% endfor %}
+                <label for="pw">Password:</label><br>
+                <input type="password" name="password" id="input"><br>
+                {% for message in get_flashed_messages(category_filter = ['err_user_password']) %}
+                <p>{{message}}</p>
+                {% endfor %}
+                <label for="cpw">Confirm Password:</label><br>
+                <input type="password" name="cfm_pw" id="input"><br>
+                {% for message in get_flashed_messages(category_filter = ['err_user_cfm_pw']) %}
+                <p>{{message}}</p>
+                {% endfor %}
+                <input type="submit" name="register" value="Register" class="register">
+            </div>
+        </form>
+        <form action="/login" method="post">
+            <div class="right">
+                <h2>Login</h2>
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="input"><br>
+                {% for message in get_flashed_messages(category_filter = ['err_user_email_login']) %}
+                <p>{{message}}</p>
+                {% endfor %}
+                <label for="pw">Password:</label><br>
+                <input type="password" name="password" id="input"><br>
+                {% for message in get_flashed_messages(category_filter = ['err_user_password_login']) %}
+                <p>{{message}}</p>
+                {% endfor %}
+                <input type="submit" name="login" value="Login" class="login">
+            </div>
+        </form>
+        <div class="btn">
+            <a href="/"><button>Home</button></a>
+        </div>
+    </div>
+</body>
+</html>

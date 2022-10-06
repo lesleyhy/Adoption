@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/view.css') }}">
+    <title>Kitty</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Buddyfinder</h1>
+        <p>Adopt, don't shop</p>
+    </div>
+    <div class="nav_bar">
+        <div class="left">
+            <a href="/alldogs">Dogs</a>
+            <a href="/allcats">Cats</a>
+        </div>
+        <div class="right">
+            <a href="/">Home</a>
+            {% if 'user_id' in session %}
+            <a href="/user/logout">Log out</a>
+            {% else %}
+            <a href="/home/login">Login</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="main">
+        <div class="upper">
+            <img src="{{ url_for('static', filename='uploads/'+cat.pic+'') }}" width="400px" height="400px">
+        </div>
+        <div class="lower">
+            <h2>About {{cat.name}}</h2>
+            <ul>
+                <li>{{cat.age}} year(s) old</li>
+                <li>{{cat.sex}}</li>
+                <li>{{cat.color}}</li>
+                <li>{{cat.breed}}</li>
+                <li>{{cat.location}}</li>
+            </ul>
+            <h3>Health : {{cat.health}}</h3>
+            <h3>Other info : {{cat.other_info}}</h3>
+        </div>
+        <div class="botton">
+            <a href="mailto:lesleyhy1109@gmail.com"><button>Ask about me!</button></a>
+        </div>
+    </div>
+</body>
+</html>
