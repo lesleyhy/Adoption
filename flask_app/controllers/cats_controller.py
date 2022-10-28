@@ -3,7 +3,7 @@ from flask_app.models import user_model, cats_model
 from flask_app import app
 from werkzeug.utils import secure_filename
 
-path =r"D:\coding_dojo\Python\adoption\flask_app\static\uploads"
+path =r"C:\Users\lesle\OneDrive\桌面\Python\adoption\flask_app\static\uploads"
 UPLOAD_FOLDER = path
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
